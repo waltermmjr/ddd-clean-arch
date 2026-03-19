@@ -1,4 +1,4 @@
-import { Endereco } from "./Endereco";
+import { Endereco } from "./Endereco/Domain/Endereco";
 import { Usuario } from "./Usuario";
 
 
