@@ -1,6 +1,6 @@
 import { EnderecoRepository } from "../Infrastructure/EnderecoRepository";
 
-export class buscarEnderecoPorId{
+export class BuscarEnderecoPorId{
 
     constructor(private repository = new EnderecoRepository())
     {}

@@ -2,7 +2,7 @@ import { Endereco } from "../Domain/Endereco"
 import { EnderecoRepository } from "../Infrastructure/EnderecoRepository"
 
 
-export class inserirEndereco{
+export class InserirEndereco{
 
     constructor(private repository = new EnderecoRepository())
     {}

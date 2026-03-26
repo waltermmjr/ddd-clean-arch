@@ -1,7 +1,7 @@
 import { Documento } from "../Domain/Documento";
 import { DocumentoRepository } from "../Infrastructure/DocumentoRepository";
 
-export class inserirDocumento{
+export class InserirDocumento{
 
     constructor(private repository = new DocumentoRepository())
     {}

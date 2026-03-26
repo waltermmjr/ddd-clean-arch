@@ -1,6 +1,6 @@
 import { DocumentoRepository } from "../Infrastructure/DocumentoRepository";
 
-export class buscarDocumentoPorId{
+export class BuscarDocumentoPorId{
 
     constructor(private repository = new DocumentoRepository())
     {}

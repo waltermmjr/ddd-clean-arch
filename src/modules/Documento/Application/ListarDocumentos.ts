@@ -1,6 +1,6 @@
 import { DocumentoRepository } from "../Infrastructure/DocumentoRepository";
 
-export class listarDocumento{
+export class ListarDocumento{
 
     constructor(private repository = new DocumentoRepository())
     {}
