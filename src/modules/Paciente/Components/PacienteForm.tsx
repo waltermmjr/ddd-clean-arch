@@ -2,6 +2,7 @@
 
 import { DocumentoForm } from "@/modules/Documento/Components/DocumentoForm"
 import { EnderecoForm } from "@/modules/Endereco/Components/EnderecoForm"
+import { TelefoneForm } from "@/modules/Telefone/Components/TelefoneForm"
 import { useState } from "react"
 
 export function PacienteForm({ onSubmit }: any) {
