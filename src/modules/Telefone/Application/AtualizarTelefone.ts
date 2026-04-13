@@ -1,24 +1,28 @@
-import { TelefoneRepository } from "../Infrastructure/TelefoneRepository"
+import { TelefoneRepository } from "../Infrastructure/TelefoneRepository";
 
-export class AtualizarTefefone{
+export class AtualizarTelefone {
 
-    constructor(private repository = new TelefoneRepository())
-    {}
+    constructor(private repository = new TelefoneRepository()) { }
 
-    async execute(idTelefone: number, ddd: string, numeroTelefone: string, tipoTelefone: string, ativo: boolean){
+    async execute(
+        idTelefone: number,
+        ddd: string,
+        numeroTelefone: string,
+        tipoTelefone: string,
+        ativo: boolean
+    ) {
 
-        const tel = await this.repository.buscadTelefonePorID(idTelefone)
+        const tel = await this.repository.buscarTelefonePorId(idTelefone);
 
-        if(!tel){
-            console.log('Telefone não encontrado.')
-        }else{
-            tel.ddd = ddd
-            tel.numeroTelefone = numeroTelefone
-            tel.tipoTelefone = tipoTelefone
-            tel.ativo = ativo        
+        if (!tel) {
+            throw new Error("Telefone não existe!");
         }
 
-        await this.repository.atualizarTelefone(tel!)
+        tel.ddd = ddd;
+        tel.numeroTelefone = numeroTelefone;
+        tel.tipoTelefone = tipoTelefone;
+        tel.ativo = ativo;
 
+        await this.repository.atualizarTelefone(tel);
     }
 }
