@@ -1,17 +1,27 @@
-import { Endereco } from "../Domain/Endereco"
-import { EnderecoRepository } from "../Infrastructure/EnderecoRepository"
+import { Endereco } from "../Domain/Endereco";
+import { EnderecoRepository } from "../Infrastructure/EnderecoRepository";
 
+export class InserirEndereco {
 
-export class InserirEndereco{
+    constructor(private repository = new EnderecoRepository()) { }
 
-    constructor(private repository = new EnderecoRepository())
-    {}
+    async execute(
+        idEndereco: number,
+        logradouro: string,
+        numero: number,
+        bairro: string,
+        cidade: string,
+        estado: string
+    ) {
+        const endereco = new Endereco(
+            idEndereco,
+            logradouro,
+            numero,
+            bairro,
+            cidade,
+            estado
+        );
 
-    async execute(idEndereco: number, logradouro: string, numero: number, bairro: string, cidade: string, estado: string){
-
-        const end = new Endereco(idEndereco, logradouro, numero, bairro, cidade, estado)
-
-        await this.repository.inserirEndereco(end)
-
+        await this.repository.inserirEndereco(endereco);
     }
 }

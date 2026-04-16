@@ -1,29 +1,37 @@
-import { Endereco } from "@/modules/Endereco/Domain/Endereco"
-import { PacienteRepository } from "../Infrastructure/PacienteRepository"
+import { Endereco } from "@/modules/Endereco/Domain/Endereco";
+import { PacienteRepository } from "../Infrastructure/PacienteRepository";
 
-export class AtualizarPaciente{
+export class AtualizarPaciente {
 
-    constructor(private repository = new PacienteRepository())
-    {}
+    constructor(private repository = new PacienteRepository()) { }
 
-    async execute(id: number, nome: string, genero: string, idade: number, peso: number, altura: number, idDocumento: number, numeroDocumento: string, tipoDocumento: string, endereco: Endereco){
+    async execute(
+        id: number,
+        nome: string,
+        genero: string,
+        idade: number,
+        peso: number,
+        altura: number,
+        numeroDocumento: string,
+        tipoDocumento: string,
+        endereco: Endereco
+    ) {
 
-        const pac = await this.repository.buscarPacientePorId(id)
+        const pac = await this.repository.buscarPacientePorId(id);
 
-        if(!pac){
-            console.log('Paciente não encontrado.')
-        }else{
-            pac.nome = nome
-            pac.genero = genero
-            pac.idade = idade
-            pac.peso = peso
-            pac.altura = altura
-            //idDocumento
-            pac.atualizarDocumento(numeroDocumento ,tipoDocumento)
-            pac.endereco = endereco
+        if (!pac) {
+            throw new Error("Paciente não existe!");
         }
 
-        await this.repository.atualizarPaciente(pac!)
+        pac.nome = nome;
+        pac.genero = genero;
+        pac.idade = idade;
+        pac.peso = peso;
+        pac.altura = altura;
 
+        pac.atualizarDocumento(numeroDocumento, tipoDocumento);
+        pac.endereco = endereco;
+
+        await this.repository.atualizarPaciente(pac);
     }
 }

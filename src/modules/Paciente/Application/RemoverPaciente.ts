@@ -7,8 +7,6 @@ export class RemoverPaciente{
 
     async execute(id: number){
 
-
-        await this.repository.removerPaciente(id)
-
+        await this.repository.removerPaciente(id);
     }
 }

@@ -7,8 +7,6 @@ export class RemoverDocumento{
 
     async execute(idDocumento: number){
 
-
-        await this.repository.removerDocumento(idDocumento)
-
+        await this.repository.removerDocumento(idDocumento);
     }
 }

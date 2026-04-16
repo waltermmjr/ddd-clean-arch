@@ -1,12 +1,10 @@
 import { TelefoneRepository } from "../Infrastructure/TelefoneRepository";
 
-export class RemoverTelefone {
+export class ListarTelefones {
 
     constructor(private repository = new TelefoneRepository()) { }
 
-    async execute(idTelefone: number) {
-
-        await this.repository.removerTelefone(idTelefone);
-
+    async execute() {
+        return this.repository.listarTelefones(); // corrigido
     }
 }

@@ -1,16 +1,25 @@
-import { Telefone } from "../Domain/Telefone"
-import { TelefoneRepository } from "../Infrastructure/TelefoneRepository"
+import { Telefone } from "../Domain/Telefone";
+import { TelefoneRepository } from "../Infrastructure/TelefoneRepository";
 
-export class inserirTelefone{
+export class InserirTelefone {
 
-    constructor(private repository = new TelefoneRepository())
-    {}
+    constructor(private repository = new TelefoneRepository()) { }
 
-    async execute(idTelefone: number, ddd: string, numeroTelefone: string, tipoTelefone: string, ativo: boolean){
+    async execute(
+        idTelefone: number,
+        ddd: string,
+        numeroTelefone: string,
+        tipoTelefone: string,
+        ativo: boolean
+    ) {
+        const telefone = new Telefone(
+            idTelefone,
+            ddd,
+            numeroTelefone,
+            tipoTelefone,
+            ativo
+        );
 
-        const tel = new Telefone(idTelefone, ddd, numeroTelefone, tipoTelefone, ativo)
-
-        await this.repository.inserirTelefone(tel)
-
+        await this.repository.inserirTelefone(telefone);
     }
 }

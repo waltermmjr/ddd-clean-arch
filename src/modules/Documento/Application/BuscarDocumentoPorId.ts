@@ -6,8 +6,7 @@ export class BuscarDocumentoPorId{
     {}
 
     async execute(idDocumento: number){
-        
-        return this.repository.buscarDocumentoPorId(idDocumento)
 
+        return this.repository.buscarDocumentoPorId(idDocumento);
     }
 }

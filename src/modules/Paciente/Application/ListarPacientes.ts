@@ -6,8 +6,6 @@ export class ListarPacientes{
     {}
 
     async execute(){
-
-        return this.repository.listarPacientes()
-
+        return this.repository.listarPacientes();
     }
 }
