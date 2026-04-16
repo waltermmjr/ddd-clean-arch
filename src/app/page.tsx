@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import Link from "next/link";
 import "@/app/estilo.css"
 
@@ -12,4 +10,3 @@ export default function Home(){
         </div>
     );
 }
->>>>>>> SRCnovo
