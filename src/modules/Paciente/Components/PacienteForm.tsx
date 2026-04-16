@@ -1,33 +1,12 @@
 "use client"
 
-<<<<<<< HEAD
-import { DocumentoFieldset } from "@/modules/Documento/Components/DocumentoFieldset"
-import { EnderecoFieldset } from "@/modules/Endereco/Components/EnderecoFieldset"
-import { TelefoneFieldset } from "@/modules/Telefone/Components/TelefoneFieldset"
-import { useState } from "react"
-import { text } from "stream/consumers"
-=======
 import { DocumentoFieldset } from "@/modules/Documento/Components/DocumentoFieldset";
 import { EnderecoFieldset } from "@/modules/Endereco/Components/EnderecoFieldset";
 import { TelefoneFieldset } from "@/modules/Telefone/Components/TelefoneFieldset";
 import { useEffect, useState } from "react";
->>>>>>> SRCnovo
 
 export function PacienteForm({ onSubmit, pacienteEdicao }: any) {
 
-<<<<<<< HEAD
-    const [chaveFormulario, setChaveFormulario] = useState(0)
-
-    const [nome, setNome] = useState("")
-    const [genero, setGenero] = useState("")
-    const [idade, setIdade] = useState("")
-    const [peso, setPeso] = useState("")
-    const [altura, setAltura] = useState("")
-
-    const [documento, setDocumento] = useState<any>({})
-    const [endereco, setEndereco] = useState<any>({})
-    const [telefone, setTelefone] = useState<any>({})
-=======
     const [chaveFormulario, setChaveFormulario] = useState(0);
 
     const [nome, setNome] = useState("");
@@ -62,35 +41,10 @@ export function PacienteForm({ onSubmit, pacienteEdicao }: any) {
             setEndereco(pacienteEdicao.endereco || {});
         }
     }, [pacienteEdicao]);
->>>>>>> SRCnovo
 
     return (
 
         <form
-<<<<<<< HEAD
-            key={chaveFormulario} onSubmit={(e) => {
-                e.preventDefault
-
-                // VALIDANDO DADOS:
-                if (!nome || !genero || !idade || !peso || !altura) {
-                    alert('Preencha todos os campos dos dados do paciente!')
-                    return
-                }
-
-                if (!documento.numeroDocumento || !documento.tipoDocumento) {
-                    alert('Preencha todos os campos do Documento!')
-                    return
-                }
-
-                if (!endereco?.logradouro || !endereco?.numero) {
-                    alert('Preencha todos os campos do Endereço!')
-                    return
-                }
-
-                onSubmit({ nome, genero, idade: Number(idade), peso: Number(peso), altura: Number(altura), documento, endereco, telefone });
-
-                //LIMPA CAMPOS DO FORMULARIO
-=======
 
             /* O PREVENTDEFAULT GARANTE QUE APÓS A AÇÃO DE SUBMETER O FORMULÁRIO, A PÁGINA NÃO
                 HAVERÁ REFRESH. A VARIÁVEL "e" REPRESENTA UM EVENTO PRÉ-DEFINIDO A SER ACIONADO.
@@ -167,7 +121,6 @@ export function PacienteForm({ onSubmit, pacienteEdicao }: any) {
                 });
 
                 // APÓS A AÇÃO DE SUBMIT, HÁ A NECESSIDADE DE LIMPAR OS CAMPOS DO FORMULÁRIO
->>>>>>> SRCnovo
                 setNome("");
                 setGenero("");
                 setIdade("");
@@ -177,17 +130,6 @@ export function PacienteForm({ onSubmit, pacienteEdicao }: any) {
                 setEndereco({});
                 setTelefone({});
 
-<<<<<<< HEAD
-                //forçar o reset dos fieldsets presentes no formulario
-                setChaveFormulario(chaveFormulario + 1)
-
-            }} >
-
-            {/* AQUI COMEÇA O FORMULARIO  */}
-
-            Nome: <input type="text" value={nome} onChange={e => setNome(e.target.value)} /> <br />
-            Genero: <input type="text" value={genero} onChange={e => setGenero(e.target.value)} /> <br />
-=======
 
                 // INCREMENTANDO A VARIÁVEL CHAVEFORMULÁRIO NO USESTATE
                 setChaveFormulario(chaveFormulario + 1);
@@ -198,37 +140,18 @@ export function PacienteForm({ onSubmit, pacienteEdicao }: any) {
 
             Nome: <input type="text" value={nome} onChange={e => setNome(e.target.value)} /> <br />
             Gênero: <input type="text" value={genero} onChange={e => setGenero(e.target.value)} /> <br />
->>>>>>> SRCnovo
             Idade: <input type="number" value={idade} onChange={e => setIdade(e.target.value)} /> <br />
             Peso: <input type="number" value={peso} onChange={e => setPeso(e.target.value)} /> <br />
             Altura: <input type="number" value={altura} onChange={e => setAltura(e.target.value)} /> <br />
 
             <hr />
 
-<<<<<<< HEAD
-            <DocumentoFieldset onChange={setDocumento} />
-
-            <hr />
-
-            <EnderecoFieldset onChange={setEndereco} />
-
-            <hr />
-
-            <TelefoneFieldset onChange={setTelefone} />
-
-            <button type = "submit"> SALVAR PACIENTE </button>
-
-
-
-        </form>
-=======
 
             {/* TRAZENDO OS CAMPOS DOS COMPONENTES DOCUMENTO, ENDEREÇO E TELEFONE */}
 
             <DocumentoFieldset dadoInicial={documento} onChange={setDocumento} />
 
             <hr />
->>>>>>> SRCnovo
 
             <EnderecoFieldset dadoInicial={endereco} onChange={setEndereco} />
 
@@ -236,13 +159,9 @@ export function PacienteForm({ onSubmit, pacienteEdicao }: any) {
 
             <TelefoneFieldset onChange={setTelefone} /> <br />
 
-<<<<<<< HEAD
-
-=======
             <button type="submit">
                 {pacienteEdicao ? "Atualizar Paciente" : "Salvar Paciente"}
             </button>
         </form >
     );
->>>>>>> SRCnovo
 }
